@@ -3,36 +3,36 @@
   "id_pnj": "mere",
   "portrait": "res://assets/images/portraits/mere_portrait.png",
   "lignes": [
-    {
-      "nom": "Maman",
-      "texte": "Tu as l'air fatiguée ce matin, chérie... Tu as mal dormi ?",
-      "choix": [
-        { "texte": "Je vais bien, maman.", "suite": 1 },
-        { "texte": "J'ai fait des rêves bizarres...", "suite": 2 }
-      ]
-    },
-    {
-      "nom": "Maman",
-      "texte": "Tu veux un chocolat chaud ? Ça te ferait du bien avant l'école.",
-      "choix": [
-        { "texte": "Oui, merci !", "energie": 10, "relation": 5, "suite": -1 },
-        { "texte": "Non merci, je n'ai pas faim.", "suite": -1 }
-      ]
-    },
-    {
-      "nom": "Maman",
-      "texte": "Des rêves bizarres ? Raconte-moi...",
-      "choix": [
-        { "texte": "C'était une salle de classe immense et sans fin.", "suite": 3 },
-        { "texte": "Je ne m'en souviens plus très bien.", "suite": -1 }
-      ]
-    },
-    {
-      "nom": "Maman",
-      "texte": "Ça doit être le stress de l'école. Allez, viens, je t'ai préparé ton petit déjeuner préféré.",
-      "choix": [
-        { "texte": "Merci maman.", "energie": 15, "relation": 10, "suite": -1 }
-      ]
-    }
+	{
+	  "nom": "Maman",
+	  "texte": "Tu as l'air fatiguée ce matin, chérie... Tu as mal dormi ?",
+	  "choix": [
+		{ "texte": "Je vais bien, maman.", "suite": 1 },
+		{ "texte": "J'ai fait des rêves bizarres...", "suite": 2 }
+	  ]
+	},
+	{
+	  "nom": "Maman",
+	  "texte": "Tu veux un chocolat chaud ? Ça te ferait du bien avant l'école.",
+	  "choix": [
+		{ "texte": "Oui, merci !", "energie": 10, "relation": 5, "suite": -1 },
+		{ "texte": "Non merci, je n'ai pas faim.", "suite": -1 }
+	  ]
+	},
+	{
+	  "nom": "Maman",
+	  "texte": "Des rêves bizarres ? Raconte-moi...",
+	  "choix": [
+		{ "texte": "C'était une salle de classe immense et sans fin.", "suite": 3 },
+		{ "texte": "Je ne m'en souviens plus très bien.", "suite": -1 }
+	  ]
+	},
+	{
+	  "nom": "Maman",
+	  "texte": "Ça doit être le stress de l'école. Allez, viens, je t'ai préparé ton petit déjeuner préféré.",
+	  "choix": [
+		{ "texte": "Merci maman.", "energie": 15, "relation": 10, "suite": -1 }
+	  ]
+	}
   ]
 }
