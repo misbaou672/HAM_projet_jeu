@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bkmd3x3mf82do"]
+
+[ext_resource type="Script" uid="uid://b6pchpdydp6pw" path="res://scripts/ui/dialogue_box.gd" id="1_senjy"]
+
+[node name="DialogueBox" type="Control" unique_id=120858490 groups=["dialogue_ui"]]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_senjy")
+
+[node name="Panel" type="Panel" parent="." unique_id=2142295827]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Portrait" type="TextureRect" parent="Panel" unique_id=511953905]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NomLabel" type="Label" parent="Panel" unique_id=162250455]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="TexteLabel" type="RichTextLabel" parent="Panel" unique_id=276739468]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ChoiceContainer" type="VBoxContainer" parent="Panel" unique_id=755429359]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
