@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://dv2o7bwqdvggm"]
+
+[ext_resource type="Script" uid="uid://bo4wl2c3adqk0" path="res://scripts/characters/mara.gd" id="1_bxro0"]
+[ext_resource type="Texture2D" uid="uid://bcqnrgyqktnai" path="res://scenes/characters/16x32 Walk_0005.png" id="1_pjemq"]
+[ext_resource type="Texture2D" uid="uid://da3fgbsu8jubg" path="res://scenes/characters/16x32 Walk_0006.png" id="2_bxro0"]
+[ext_resource type="Texture2D" uid="uid://dlwlb30oqgrfi" path="res://scenes/characters/16x32 Walk_0007.png" id="3_r78xu"]
+[ext_resource type="Texture2D" uid="uid://cf7tgtixckyrc" path="res://scenes/characters/16x32 Walk_0008.png" id="4_rtndi"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5anxx"]
+radius = 20.0
+height = 66.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r17qm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_pjemq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_bxro0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_r78xu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_rtndi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Mara" type="CharacterBody2D" unique_id=768659276]
+script = ExtResource("1_bxro0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1742818401]
+shape = SubResource("CapsuleShape2D_5anxx")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1843084101]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=423014934]
+position = Vector2(3, -12)
+sprite_frames = SubResource("SpriteFrames_r17qm")
+autoplay = "default"
+frame_progress = 0.46652132

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bfjyep1336aun"]
+
+[ext_resource type="Script" uid="uid://ctoiflfk8bv4t" path="res://scripts/scenes/real_world.gd" id="1_xgl55"]
+[ext_resource type="PackedScene" uid="uid://dv2o7bwqdvggm" path="res://mara.tscn" id="2_fx4cc"]
+[ext_resource type="PackedScene" uid="uid://bkmd3x3mf82do" path="res://dialogue_box.tscn" id="3_1ymho"]
+
+[node name="RealWorld" type="Node2D" unique_id=1608173834]
+script = ExtResource("1_xgl55")
+
+[node name="Mara" parent="." unique_id=768659276 instance=ExtResource("2_fx4cc")]
+
+[node name="DialogueBox" parent="." unique_id=120858490 instance=ExtResource("3_1ymho")]
+
+[node name="EffetHallucination" type="CanvasLayer" parent="." unique_id=664997096]
+visible = false
+
+[node name="TimerHallucination" type="Timer" parent="." unique_id=1092078633]
