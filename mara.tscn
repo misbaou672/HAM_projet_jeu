@@ -7,8 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://cf7tgtixckyrc" path="res://scenes/characters/16x32 Walk_0008.png" id="4_rtndi"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5anxx"]
-radius = 20.0
-height = 66.0
+radius = 13.0
+height = 44.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_r17qm"]
 animations = [{

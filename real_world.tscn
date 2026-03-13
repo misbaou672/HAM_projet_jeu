@@ -3,8 +3,109 @@
 [ext_resource type="Script" uid="uid://ctoiflfk8bv4t" path="res://scripts/scenes/real_world.gd" id="1_xgl55"]
 [ext_resource type="PackedScene" uid="uid://dv2o7bwqdvggm" path="res://mara.tscn" id="2_fx4cc"]
 [ext_resource type="PackedScene" uid="uid://bkmd3x3mf82do" path="res://dialogue_box.tscn" id="3_1ymho"]
+[ext_resource type="Texture2D" uid="uid://bcx1sxmxqed78" path="res://assets/images/ecole-asset_0002.png" id="4_fx4cc"]
 
-[node name="RealWorld" type="Node2D" unique_id=1608173834]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1ymho"]
+texture = ExtResource("4_fx4cc")
+texture_region_size = Vector2i(8, 8)
+77:34/0 = 0
+79:56/size_in_atlas = Vector2i(21, 14)
+79:56/0 = 0
+35:38/size_in_atlas = Vector2i(16, 12)
+35:38/0 = 0
+60:55/size_in_atlas = Vector2i(15, 13)
+60:55/0 = 0
+3:58/size_in_atlas = Vector2i(12, 12)
+3:58/0 = 0
+19:74/size_in_atlas = Vector2i(12, 12)
+19:74/0 = 0
+3:74/size_in_atlas = Vector2i(12, 13)
+3:74/0 = 0
+35:74/size_in_atlas = Vector2i(12, 13)
+35:74/0 = 0
+51:74/size_in_atlas = Vector2i(12, 13)
+51:74/0 = 0
+103:70/size_in_atlas = Vector2i(24, 17)
+103:70/0 = 0
+107:54/size_in_atlas = Vector2i(8, 12)
+107:54/0 = 0
+118:54/size_in_atlas = Vector2i(9, 12)
+118:54/0 = 0
+110:40/size_in_atlas = Vector2i(5, 11)
+110:40/0 = 0
+116:42/size_in_atlas = Vector2i(7, 4)
+116:42/0 = 0
+116:46/size_in_atlas = Vector2i(7, 4)
+116:46/0 = 0
+108:27/size_in_atlas = Vector2i(7, 12)
+108:27/0 = 0
+116:27/size_in_atlas = Vector2i(7, 12)
+116:27/0 = 0
+107:10/size_in_atlas = Vector2i(9, 13)
+107:10/0 = 0
+119:12/size_in_atlas = Vector2i(8, 10)
+119:12/0 = 0
+95:10/size_in_atlas = Vector2i(8, 12)
+95:10/0 = 0
+71:8/size_in_atlas = Vector2i(16, 5)
+71:8/0 = 0
+71:14/size_in_atlas = Vector2i(16, 3)
+71:14/0 = 0
+71:18/size_in_atlas = Vector2i(12, 3)
+71:18/0 = 0
+72:22/size_in_atlas = Vector2i(6, 5)
+72:22/0 = 0
+54:10/size_in_atlas = Vector2i(14, 12)
+54:10/0 = 0
+54:25/size_in_atlas = Vector2i(5, 5)
+54:25/0 = 0
+54:30/size_in_atlas = Vector2i(4, 6)
+54:30/0 = 0
+53:36/size_in_atlas = Vector2i(5, 6)
+53:36/0 = 0
+37:31/size_in_atlas = Vector2i(5, 3)
+37:31/0 = 0
+43:30/size_in_atlas = Vector2i(8, 7)
+43:30/0 = 0
+43:22/size_in_atlas = Vector2i(8, 7)
+43:22/0 = 0
+43:7/size_in_atlas = Vector2i(8, 11)
+43:7/0 = 0
+23:7/size_in_atlas = Vector2i(16, 10)
+23:7/0 = 0
+3:7/size_in_atlas = Vector2i(16, 10)
+3:7/0 = 0
+3:22/size_in_atlas = Vector2i(20, 8)
+3:22/0 = 0
+4:30/size_in_atlas = Vector2i(18, 5)
+4:30/0 = 0
+3:42/size_in_atlas = Vector2i(12, 8)
+3:42/0 = 0
+19:43/size_in_atlas = Vector2i(12, 7)
+19:43/0 = 0
+72:38/size_in_atlas = Vector2i(6, 4)
+72:38/0 = 0
+67:42/size_in_atlas = Vector2i(17, 8)
+67:42/0 = 0
+90:29/size_in_atlas = Vector2i(13, 9)
+90:29/0 = 0
+90:42/size_in_atlas = Vector2i(13, 8)
+90:42/0 = 0
+35:54/size_in_atlas = Vector2i(16, 12)
+35:54/0 = 0
+67:73/size_in_atlas = Vector2i(32, 26)
+67:73/0 = 0
+66:92/size_in_atlas = Vector2i(1, 5)
+66:92/0 = 0
+50:91/size_in_atlas = Vector2i(8, 8)
+50:91/0 = 0
+20:58/size_in_atlas = Vector2i(10, 12)
+20:58/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_0wljv"]
+sources/0 = SubResource("TileSetAtlasSource_1ymho")
+
+[node name="Ecole" type="Node2D" unique_id=1608173834]
 script = ExtResource("1_xgl55")
 
 [node name="Mara" parent="." unique_id=768659276 instance=ExtResource("2_fx4cc")]
@@ -16,3 +117,9 @@ position = Vector2(317, 184)
 visible = false
 
 [node name="TimerHallucination" type="Timer" parent="." unique_id=1092078633]
+
+[node name="Decor" type="TileMap" parent="." unique_id=708929448]
+position = Vector2(-35, 0)
+tile_set = SubResource("TileSet_0wljv")
+format = 2
+layer_0/tile_data = PackedInt32Array(1048580, 1245184, 58)
