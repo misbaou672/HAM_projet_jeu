@@ -8,6 +8,7 @@
 script = ExtResource("1_xgl55")
 
 [node name="Mara" parent="." unique_id=768659276 instance=ExtResource("2_fx4cc")]
+position = Vector2(317, 184)
 
 [node name="DialogueBox" parent="." unique_id=120858490 instance=ExtResource("3_1ymho")]
 
