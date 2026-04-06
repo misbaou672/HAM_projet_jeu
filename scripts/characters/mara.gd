@@ -1,123 +1,93 @@
 extends CharacterBody2D
 
 # ═══════════════════════════════════════════════════════════
-# mara.gd — Personnage joueur
-# Attacher à : scenes/characters/mara.tscn
-# Noeuds requis dans la scène :
-#   - AnimatedSprite2D  (nommé AnimatedSprite2D)
-#   - CollisionShape2D
-#   - Camera2D          (nommée Camera2D)
+# mara.gd — Top-down style Pokémon
+# Placer les sprites dans : res://scenes/characters/
+# Animations dans AnimatedSprite2D :
+#   idle_bas / idle_haut / idle_gauche / idle_droite
+#   marche_bas / marche_haut / marche_gauche / marche_droite
 # ═══════════════════════════════════════════════════════════
 
-# ── Paramètres de mouvement ─────────────────────────────────
-@export var vitesse_max   : float = 180.0
-@export var acceleration  : float = 900.0
-@export var friction      : float = 700.0
+@export var vitesse_max : float = 120.0
 
-# ── Coyote time ─────────────────────────────────────────────
-const COYOTE_DUREE        : float = 0.12
-var   _coyote_timer       : float = 0.0
+@onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
+@onready var camera : Camera2D         = $Camera2D
 
-# ── Saut ────────────────────────────────────────────────────
-@export var force_saut    : float = -380.0
-const GRAVITE             : float = 0.0
-
-# ── Références ─────────────────────────────────────────────
-@onready var sprite   : AnimatedSprite2D = $AnimatedSprite2D
-@onready var camera   : Camera2D         = $Camera2D
-
-# ── État interne ────────────────────────────────────────────
-var _peut_interagir   : bool = true   # bloqué pendant les dialogues
-var _pnj_proche       : Node = null   # PNJ à portée d'interaction
+var _pnj_proche     : Node   = null
+var _direction_face : String = "bas"
 
 # ════════════════════════════════════════════════════════════
-# PRÊT
-# ════════════════════════════════════════════════════════════
-
 func _ready() -> void:
 	add_to_group("joueur")
-	# Écoute la fin des dialogues pour débloquer le mouvement
 	DialogueManager.dialogue_termine.connect(_on_dialogue_termine)
+	camera.position_smoothing_enabled = true
+	camera.position_smoothing_speed   = 8.0
+	camera.enabled                    = true
 
 # ════════════════════════════════════════════════════════════
-# PHYSIQUE (chaque frame)
-# ════════════════════════════════════════════════════════════
-
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if DialogueManager.dialogue_en_cours:
-		_jouer_animation("idle")
+		velocity = Vector2.ZERO
+		_jouer_animation("idle_" + _direction_face)
 		return
 
-	_appliquer_gravite(delta)
-	_gerer_coyote(delta)
-	_gerer_mouvement(delta)
-	_gerer_saut()
+	var dir := Vector2(
+		Input.get_axis("ui_left", "ui_right"),
+		Input.get_axis("ui_up",   "ui_down")
+	)
+
+	if dir.length() > 1.0:
+		dir = dir.normalized()
+
+	if dir != Vector2.ZERO:
+		velocity = dir * vitesse_max
+		if   abs(dir.x) >= abs(dir.y) and dir.x > 0 : _direction_face = "droite"
+		elif abs(dir.x) >= abs(dir.y) and dir.x < 0 : _direction_face = "gauche"
+		elif dir.y < 0                               : _direction_face = "haut"
+		else                                         : _direction_face = "bas"
+	else:
+		velocity = Vector2.ZERO
+
 	move_and_slide()
-	_mettre_a_jour_animation()
-
-func _appliquer_gravite(delta: float) -> void:
-	if not is_on_floor():
-		velocity.y += GRAVITE * delta
-
-func _gerer_coyote(delta: float) -> void:
-	if is_on_floor():
-		_coyote_timer = COYOTE_DUREE
-	else:
-		_coyote_timer -= delta
-
-func _gerer_mouvement(delta: float) -> void:
-	var direction : float = Input.get_axis("ui_left", "ui_right")
-
-	if direction != 0.0:
-		velocity.x = move_toward(velocity.x, direction * vitesse_max, acceleration * delta)
-		sprite.flip_h = direction < 0.0
-	else:
-		velocity.x = move_toward(velocity.x, 0.0, friction * delta)
-
-func _gerer_saut() -> void:
-	var peut_sauter : bool = is_on_floor() or _coyote_timer > 0.0
-	if Input.is_action_just_pressed("ui_accept") and peut_sauter:
-		velocity.y   = force_saut
-		_coyote_timer = 0.0
-
-# ════════════════════════════════════════════════════════════
-# INTERACTIONS
-# ════════════════════════════════════════════════════════════
-
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("interagir") and _pnj_proche and not DialogueManager.dialogue_en_cours:
-		_pnj_proche.demarrer_dialogue()
-
-# Appelé par les Area2D des PNJ
-func set_pnj_proche(pnj: Node) -> void:
-	_pnj_proche = pnj
-
-func clear_pnj_proche() -> void:
-	_pnj_proche = null
+	_mettre_a_jour_animation(dir != Vector2.ZERO)
 
 # ════════════════════════════════════════════════════════════
 # ANIMATIONS
 # ════════════════════════════════════════════════════════════
 
-func _mettre_a_jour_animation() -> void:
-	if not is_on_floor():
-		_jouer_animation("saut" if velocity.y < 0 else "chute")
-	elif abs(velocity.x) > 10.0:
-		_jouer_animation("marche")
+func _mettre_a_jour_animation(en_mouvement: bool) -> void:
+	var anim : String
+	if en_mouvement:
+		match _direction_face:
+			"droite" : anim = "marche_droite"
+			"gauche" : anim = "marche_gauche"
+			"haut"   : anim = "marche_haut"
+			_        : anim = "marche_bas"
 	else:
-		_jouer_animation("idle")
+		anim = "idle_" + _direction_face
 
-	# Ralentir l'animation selon la fatigue
-	var fatigue_ratio : float = 1.0 - (100 - GameManager.energie) / 200.0
-	sprite.speed_scale = clamp(fatigue_ratio, 0.5, 1.0)
+	sprite.speed_scale = clamp(1.0 - (100 - GameManager.energie) / 200.0, 0.5, 1.0)
+	_jouer_animation(anim)
 
 func _jouer_animation(nom: String) -> void:
 	if sprite.animation != nom:
 		sprite.play(nom)
 
 # ════════════════════════════════════════════════════════════
-# CALLBACKS
+# INTERACTIONS
 # ════════════════════════════════════════════════════════════
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("interagir") \
+	and _pnj_proche \
+	and not DialogueManager.dialogue_en_cours:
+		_pnj_proche.demarrer_dialogue()
+
+func set_pnj_proche(pnj: Node) -> void:
+	_pnj_proche = pnj
+
+func clear_pnj_proche() -> void:
+	_pnj_proche = null
+
 func _on_dialogue_termine() -> void:
-	pass  # le mouvement reprend automatiquement au prochain frame
+	pass

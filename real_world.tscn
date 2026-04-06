@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bkmd3x3mf82do" path="res://dialogue_box.tscn" id="3_1ymho"]
 [ext_resource type="Texture2D" uid="uid://bcx1sxmxqed78" path="res://assets/images/ecole-asset_0002.png" id="4_fx4cc"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1ymho"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fx4cc"]
 texture = ExtResource("4_fx4cc")
 texture_region_size = Vector2i(8, 8)
 77:34/0 = 0
@@ -21,18 +21,12 @@ texture_region_size = Vector2i(8, 8)
 19:74/0 = 0
 3:74/size_in_atlas = Vector2i(12, 13)
 3:74/0 = 0
-35:74/size_in_atlas = Vector2i(12, 13)
+35:74/size_in_atlas = Vector2i(12, 12)
 35:74/0 = 0
-51:74/size_in_atlas = Vector2i(12, 13)
-51:74/0 = 0
 103:70/size_in_atlas = Vector2i(24, 17)
 103:70/0 = 0
 107:54/size_in_atlas = Vector2i(8, 12)
 107:54/0 = 0
-118:54/size_in_atlas = Vector2i(9, 12)
-118:54/0 = 0
-110:40/size_in_atlas = Vector2i(5, 11)
-110:40/0 = 0
 116:42/size_in_atlas = Vector2i(7, 4)
 116:42/0 = 0
 116:46/size_in_atlas = Vector2i(7, 4)
@@ -85,31 +79,34 @@ texture_region_size = Vector2i(8, 8)
 19:43/0 = 0
 72:38/size_in_atlas = Vector2i(6, 4)
 72:38/0 = 0
-67:42/size_in_atlas = Vector2i(17, 8)
+67:42/size_in_atlas = Vector2i(16, 8)
 67:42/0 = 0
 90:29/size_in_atlas = Vector2i(13, 9)
 90:29/0 = 0
-90:42/size_in_atlas = Vector2i(13, 8)
-90:42/0 = 0
 35:54/size_in_atlas = Vector2i(16, 12)
 35:54/0 = 0
-67:73/size_in_atlas = Vector2i(32, 26)
-67:73/0 = 0
 66:92/size_in_atlas = Vector2i(1, 5)
 66:92/0 = 0
 50:91/size_in_atlas = Vector2i(8, 8)
 50:91/0 = 0
 20:58/size_in_atlas = Vector2i(10, 12)
 20:58/0 = 0
+67:72/size_in_atlas = Vector2i(32, 27)
+67:72/0 = 0
+119:54/size_in_atlas = Vector2i(8, 12)
+119:54/0 = 0
+91:42/size_in_atlas = Vector2i(12, 8)
+91:42/0 = 0
+111:40/size_in_atlas = Vector2i(4, 11)
+111:40/0 = 0
+52:75/size_in_atlas = Vector2i(10, 10)
+52:75/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_0wljv"]
-sources/0 = SubResource("TileSetAtlasSource_1ymho")
+sources/0 = SubResource("TileSetAtlasSource_fx4cc")
 
 [node name="Ecole" type="Node2D" unique_id=1608173834]
 script = ExtResource("1_xgl55")
-
-[node name="Mara" parent="." unique_id=768659276 instance=ExtResource("2_fx4cc")]
-position = Vector2(317, 184)
 
 [node name="DialogueBox" parent="." unique_id=120858490 instance=ExtResource("3_1ymho")]
 
@@ -119,7 +116,18 @@ visible = false
 [node name="TimerHallucination" type="Timer" parent="." unique_id=1092078633]
 
 [node name="Decor" type="TileMap" parent="." unique_id=708929448]
-position = Vector2(-35, 0)
+physics_interpolation_mode = 1
+position = Vector2(13, 131)
 tile_set = SubResource("TileSet_0wljv")
 format = 2
-layer_0/tile_data = PackedInt32Array(1048580, 1245184, 58)
+layer_0/name = "sol"
+layer_0/navigation_enabled = false
+layer_0/tile_data = PackedInt32Array(458754, 1310720, 58, 786434, 1310720, 58, 1114114, 1310720, 58, 1441794, 1310720, 58, 1441799, 1310720, 58, 1441804, 1310720, 58, 1441809, 1310720, 58, 1441814, 1310720, 58, 1441819, 1310720, 58, 1441824, 1310720, 58, 1114119, 1310720, 58, 786439, 1310720, 58, 1114124, 1310720, 58, 1114129, 1310720, 58, 1114134, 1310720, 58, 1114139, 1310720, 58, 1441829, 1310720, 58, 1114149, 1310720, 58, 1114144, 1310720, 58, 786444, 1310720, 58, 786449, 1310720, 58, 786454, 1310720, 58, 786459, 1310720, 58, 786464, 1310720, 58, 131074, 1310720, 58, 131079, 1310720, 58, 131084, 1310720, 58, 131094, 1310720, 58, 131089, 1310720, 58, 131104, 1310720, 58, 131099, 1310720, 58, 458784, 1310720, 58, 458759, 1310720, 58, 458764, 1310720, 58, 458769, 1310720, 58, 458774, 1310720, 58, 458779, 1310720, 58, 786469, 1310720, 58, 458789, 1310720, 58, 131109, 1310720, 58)
+layer_1/name = "obstacle"
+layer_1/tile_data = PackedInt32Array(-196606, 3407872, 75, -196601, 3407872, 75, -196597, 3407872, 75, -196592, 3407872, 75, -196587, 3407872, 75, -196582, 3407872, 75, -196577, 3407872, 75, -131075, 3407872, 75, 196605, 3407872, 75, 524285, 3407872, 75, 851965, 3407872, 75, 1179645, 3407872, 75, 1507325, 3407872, 75, 589831, 2818048, 30, 917511, 2818048, 30, 1245191, 2818048, 30, 589837, 2818048, 30, 917517, 2818048, 30, 1245197, 2818048, 30, 589843, 2818048, 30, 917523, 2818048, 30, 1245203, 2818048, 30, 589849, 2818048, 30, 917529, 2818048, 30, 1245209, 2818048, 30, 65566, 4718592, 38, 262174, 4390912, 42, 131114, 3407872, 75, 458794, 3407872, 75, 786474, 3407872, 75, 1114154, 3407872, 75, 1441834, 3407872, 75, 983047, 3538944, 30, 983059, 3538944, 30, 1310733, 3538944, 30, 655367, 3473408, 36, 983053, 3473408, 36, 1310745, 3473408, 36, 655373, 3538944, 25, 1310727, 3538944, 25, 983065, 3538944, 25, 1310739, 3538944, 25, 655385, 3538944, 30, 655379, 3473408, 36, -131070, 6225920, 10, -196572, 3407872, 75, -196567, 3407872, 75, 1703933, 3407872, 75, 1638407, 3407872, 75, 1638412, 3407872, 75, 1638417, 3407872, 75, 1638422, 3407872, 75, 1638427, 3407872, 75, 1638432, 3407872, 75, 1638437, 3407872, 75, 1638442, 3407872, 75, -196566, 3407872, 75)
+layer_2/name = "deco"
+layer_2/navigation_enabled = false
+layer_2/tile_data = PackedInt32Array(-196592, 196608, 7, -131070, 6225920, 10, -131035, 7798784, 12)
+
+[node name="Mara" parent="." unique_id=768659276 instance=ExtResource("2_fx4cc")]
+position = Vector2(49, 158)
