@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://c1ipacapkrkbo"]
+
+[node name="JeuSimon" type="Node2D" unique_id=287072209]
+
+[node name="Etoile1" type="Button" parent="." unique_id=1786901598]
+offset_left = 150.0
+offset_top = -112.0
+offset_right = 398.0
+offset_bottom = 131.0
+
+[node name="Etoile2" type="Button" parent="." unique_id=1950459272]
+offset_left = 557.0
+offset_top = -485.0
+offset_right = 905.0
+offset_bottom = -259.0
+
+[node name="Etoile3" type="Button" parent="." unique_id=1590654536]
+offset_left = 598.0
+offset_top = -65.0
+offset_right = 827.0
+offset_bottom = 251.0
+
+[node name="TimerAffichage" type="Timer" parent="." unique_id=11910561]
