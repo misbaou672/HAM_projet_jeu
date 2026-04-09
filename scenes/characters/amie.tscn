@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://cccqll2dpot5v"]
+
+[ext_resource type="Texture2D" uid="uid://c28uc6ca5kpgp" path="res://assets/images/Personage/amie.png" id="1_ts365"]
+[ext_resource type="PackedScene" uid="uid://bkmd3x3mf82do" path="res://scenes/Interaction/dialogue_box.tscn" id="2_ao1du"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ao1du"]
+atlas = ExtResource("1_ts365")
+region = Rect2(0, 0, 33, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oa7p1"]
+atlas = ExtResource("1_ts365")
+region = Rect2(33, 0, 33, 52)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1ioat"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ao1du")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oa7p1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t0doy"]
+radius = 9.0
+height = 46.0
+
+[node name="Amie" type="CharacterBody2D" unique_id=1225834965]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1673651355]
+sprite_frames = SubResource("SpriteFrames_1ioat")
+frame_progress = 0.90180635
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D" unique_id=604466051]
+shape = SubResource("CapsuleShape2D_t0doy")
+
+[node name="DialogueBox" parent="." unique_id=120858490 instance=ExtResource("2_ao1du")]
+offset_left = 17.0
+offset_top = -31.0
+offset_right = 57.0
+offset_bottom = 9.0

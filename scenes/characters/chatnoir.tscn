@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://5ebrhnqqen1x"]
+
+[ext_resource type="Texture2D" uid="uid://bwq4hx06panwc" path="res://assets/images/Personage/Black-cat.png.png" id="1_sit5d"]
+[ext_resource type="PackedScene" uid="uid://bkmd3x3mf82do" path="res://scenes/Interaction/dialogue_box.tscn" id="2_npen2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_npen2"]
+atlas = ExtResource("1_sit5d")
+region = Rect2(0, 0, 48, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnfrj"]
+atlas = ExtResource("1_sit5d")
+region = Rect2(48, 0, 48, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r7fw6"]
+atlas = ExtResource("1_sit5d")
+region = Rect2(96, 0, 48, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_shglo"]
+atlas = ExtResource("1_sit5d")
+region = Rect2(144, 0, 48, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bfj3l"]
+atlas = ExtResource("1_sit5d")
+region = Rect2(192, 0, 48, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_haukn"]
+atlas = ExtResource("1_sit5d")
+region = Rect2(240, 0, 48, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ympd"]
+atlas = ExtResource("1_sit5d")
+region = Rect2(288, 0, 48, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3637s"]
+atlas = ExtResource("1_sit5d")
+region = Rect2(336, 0, 48, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jmm6"]
+atlas = ExtResource("1_sit5d")
+region = Rect2(384, 0, 48, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ym1p"]
+atlas = ExtResource("1_sit5d")
+region = Rect2(432, 0, 48, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v05uo"]
+atlas = ExtResource("1_sit5d")
+region = Rect2(480, 0, 48, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qiiyx"]
+atlas = ExtResource("1_sit5d")
+region = Rect2(528, 0, 48, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e3axl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_npen2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dnfrj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r7fw6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_shglo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bfj3l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_haukn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ympd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3637s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7jmm6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ym1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v05uo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qiiyx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ogqqt"]
+size = Vector2(28, 24)
+
+[node name="Chatnoir" type="CharacterBody2D" unique_id=64585073]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=723808689]
+sprite_frames = SubResource("SpriteFrames_e3axl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D" unique_id=1025857245]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_ogqqt")
+
+[node name="DialogueBox" parent="." unique_id=120858490 instance=ExtResource("2_npen2")]
+offset_left = 22.0
+offset_top = -40.0
+offset_right = 62.0
+offset_bottom = 0.0

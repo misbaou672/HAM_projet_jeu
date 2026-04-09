@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://ddjhk4qkbxeq7"]
+
+[ext_resource type="Texture2D" uid="uid://dsv2f354anhii" path="res://assets/images/Personage/voisin.png" id="1_pn16g"]
+[ext_resource type="PackedScene" uid="uid://bkmd3x3mf82do" path="res://scenes/Interaction/dialogue_box.tscn" id="2_3vf4s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3vf4s"]
+atlas = ExtResource("1_pn16g")
+region = Rect2(0, 0, 51, 54)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v1nkp"]
+atlas = ExtResource("1_pn16g")
+region = Rect2(51, 0, 51, 54)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0kxa"]
+atlas = ExtResource("1_pn16g")
+region = Rect2(102, 0, 51, 54)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qjyv1"]
+atlas = ExtResource("1_pn16g")
+region = Rect2(153, 0, 51, 54)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qyqkw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3vf4s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v1nkp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0kxa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qjyv1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o4aga"]
+height = 50.0
+
+[node name="Voisin" type="CharacterBody2D" unique_id=910498864]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=450173802]
+sprite_frames = SubResource("SpriteFrames_qyqkw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D" unique_id=692439409]
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_o4aga")
+
+[node name="DialogueBox" parent="." unique_id=120858490 instance=ExtResource("2_3vf4s")]
+offset_left = 36.0
+offset_top = -41.0
+offset_right = 76.0
+offset_bottom = -1.0

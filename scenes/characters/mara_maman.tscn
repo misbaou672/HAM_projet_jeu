@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://bqhvle5ioi1dg"]
+
+[ext_resource type="Texture2D" uid="uid://nxjdpov5tnj0" path="res://assets/images/Personage/Maman_mara.png" id="1_rc4xh"]
+[ext_resource type="PackedScene" uid="uid://bkmd3x3mf82do" path="res://scenes/Interaction/dialogue_box.tscn" id="2_tg4jd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tg4jd"]
+atlas = ExtResource("1_rc4xh")
+region = Rect2(0, 0, 39, 61)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_prqjs"]
+atlas = ExtResource("1_rc4xh")
+region = Rect2(39, 0, 39, 61)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqcaf"]
+atlas = ExtResource("1_rc4xh")
+region = Rect2(78, 0, 39, 61)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0g1x"]
+atlas = ExtResource("1_rc4xh")
+region = Rect2(117, 0, 39, 61)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n32yt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tg4jd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_prqjs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqcaf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g0g1x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.5
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eyt4c"]
+radius = 7.0
+height = 50.0
+
+[node name="Mara_Maman" type="CharacterBody2D" unique_id=1016574782]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=946696428]
+sprite_frames = SubResource("SpriteFrames_n32yt")
+frame_progress = 0.80288756
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D" unique_id=1477951985]
+position = Vector2(0, 6)
+shape = SubResource("CapsuleShape2D_eyt4c")
+
+[node name="DialogueBox" parent="." unique_id=120858490 instance=ExtResource("2_tg4jd")]
+offset_left = 20.0
+offset_top = -45.0
+offset_right = 60.0
+offset_bottom = -5.0

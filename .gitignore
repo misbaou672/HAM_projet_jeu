@@ -14,3 +14,45 @@ export_credentials.cfg
 .mono/
 data_*/
 mono_crash.*.json
+
+# --- Spécifique à Godot ---
+# Dossier d'importation et cache (Godot 4.x)
+.godot/
+
+# Anciens dossiers d'importation (Godot 3.x)
+.import/
+
+# Ne pas ignorer le fichier de configuration du projet
+!project.godot
+
+# Ignorer les exports (si vous exportez dans des sous-dossiers spécifiques)
+*.exe
+*.zip
+*.apk
+*.ipa
+*.app
+*.dmg
+*.pck
+*.ccp
+
+# Fichiers de configuration d'export (contient parfois des mots de passe ou chemins locaux)
+export_presets.cfg
+
+# --- Fichiers Système ---
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# --- Éditeurs de texte / IDE ---
+.vscode/
+.idea/
+*.swp
+*.swo
+.kate-config
