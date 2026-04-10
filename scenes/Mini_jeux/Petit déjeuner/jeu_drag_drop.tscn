@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://fwuykxxcduy1"]
+
+[ext_resource type="Texture2D" uid="uid://bcqnrgyqktnai" path="res://scenes/characters/16x32 Walk_0005.png" id="1_7c8fv"]
+[ext_resource type="Script" uid="uid://o04yd3nal0rd" path="res://scripts/Mini_jeux/Petit déjeuner/jeu_drag_drop.gd" id="1_ilwd0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fu4vj"]
+size = Vector2(401, 149.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p6rc3"]
+size = Vector2(568, 208)
+
+[node name="JeuDragDrop" type="Node2D" unique_id=949970380]
+script = ExtResource("1_ilwd0")
+
+[node name="ZoneCible" type="Area2D" parent="." unique_id=1721240341]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneCible" unique_id=1713201879]
+position = Vector2(887.5, 566.75)
+shape = SubResource("RectangleShape2D_fu4vj")
+
+[node name="ObjetGlissant" type="Area2D" parent="." unique_id=151687622]
+
+[node name="Sprite2D" type="Sprite2D" parent="ObjetGlissant" unique_id=693158164]
+position = Vector2(304, 188)
+scale = Vector2(2.4072165, 1.8777778)
+texture = ExtResource("1_7c8fv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObjetGlissant" unique_id=2118883155]
+position = Vector2(318, 187)
+shape = SubResource("RectangleShape2D_p6rc3")
