@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://bs2ime3i7b8aa"]
+
+[node name="PuzzleSouvenir" type="Node2D" unique_id=1004520663]
+position = Vector2(1154, 33)
+
+[node name="Cible1" type="Marker2D" parent="." unique_id=1245713585]
+position = Vector2(721, 435)
+
+[node name="Cible2" type="Marker2D" parent="." unique_id=1549026541]
+position = Vector2(106, 443)
+
+[node name="Cible3" type="Marker2D" parent="." unique_id=1756460222]
+position = Vector2(722, 91)
+
+[node name="Cible4" type="Marker2D" parent="." unique_id=489151866]
+position = Vector2(97, 79)
+
+[node name="Piece1" type="Area2D" parent="." unique_id=1619026419]
+position = Vector2(714, 432)
+
+[node name="Sprite2D" type="Sprite2D" parent="Piece1" unique_id=1704089313]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Piece1" unique_id=527046]
+
+[node name="Piece2" type="Area2D" parent="." unique_id=1779610500]
+position = Vector2(113, 444)
+
+[node name="Sprite2D" type="Sprite2D" parent="Piece2" unique_id=1361332753]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Piece2" unique_id=1477794683]
+
+[node name="Piece3" type="Area2D" parent="." unique_id=1959917696]
+position = Vector2(723, 98)
+
+[node name="Sprite2D" type="Sprite2D" parent="Piece3" unique_id=1984594293]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Piece3" unique_id=1053348621]
+
+[node name="Piece4" type="Area2D" parent="." unique_id=2101240767]
+position = Vector2(101, 76)
+
+[node name="Sprite2D" type="Sprite2D" parent="Piece4" unique_id=310840153]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Piece4" unique_id=398545491]
