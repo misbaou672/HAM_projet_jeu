@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://c3g2fy5lj0qis"]
+
+[ext_resource type="Script" uid="uid://dqv44nyjmev73" path="res://scripts/Mini_jeux/Album Photo/album_photo.gd" id="1_q8h4c"]
+
+[node name="AlbumPhoto" type="Control" unique_id=427896235]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q8h4c")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1140610838]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.6020001
+anchor_bottom = 1.779
+offset_left = 3.0
+offset_top = -4.0
+offset_right = 7.7199707
+offset_bottom = 2.5599976
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer" unique_id=1582358326]
+layout_mode = 2
+
+[node name="Photo1" type="TextureButton" parent="CenterContainer/HBoxContainer" unique_id=1722547105]
+layout_mode = 2
+
+[node name="Photo2" type="TextureButton" parent="CenterContainer/HBoxContainer" unique_id=775706001]
+layout_mode = 2
+
+[node name="Photo3" type="TextureButton" parent="CenterContainer/HBoxContainer" unique_id=438293122]
+layout_mode = 2

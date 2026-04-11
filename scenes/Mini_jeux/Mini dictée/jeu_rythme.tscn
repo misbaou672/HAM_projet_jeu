@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cseooxrgys4t1"]
+
+[node name="JeuRythme" type="Node2D" unique_id=1643254598]
+
+[node name="Cible" type="Area2D" parent="." unique_id=1816552162]
+
+[node name="Sprite2D" type="Sprite2D" parent="Cible" unique_id=1581298632]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cible" unique_id=77874915]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=595840712]
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=322231465]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=789638365]

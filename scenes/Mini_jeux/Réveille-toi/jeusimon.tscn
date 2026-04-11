@@ -1,6 +1,12 @@
+<<<<<<< Updated upstream
 [gd_scene format=3 uid="uid://c1ipacapkrkbo"]
 
 [ext_resource type="Script" uid="uid://wd5jjlnja8nw" path="res://scripts/Mini_jeux/Reveille-toi.gd" id="1_6t0nx"]
+=======
+[gd_scene format=3 uid="uid://mr31lwcqeujp"]
+
+[ext_resource type="Script" path="res://scripts/Mini_jeux/Reveille-toi.gd" id="1_6t0nx"]
+>>>>>>> Stashed changes
 
 [node name="JeuSimon" type="Node2D" unique_id=287072209]
 script = ExtResource("1_6t0nx")

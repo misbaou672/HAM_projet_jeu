@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://dnq0c6pylaujm"]
+
+[ext_resource type="Script" uid="uid://ca60wdomj4d24" path="res://scripts/Mini_jeux/Mini dictée/jeu_choix.gd" id="1_grfbh"]
+
+[node name="JeuChoix" type="Control" unique_id=1952707202]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1020.0
+offset_right = 437.0
+offset_bottom = -643.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_grfbh")
+metadata/_edit_vertical_guides_ = [346.0]
+
+[node name="TexteQuestion" type="Label" parent="." unique_id=1939477201]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 0.21300001
+offset_left = 76.0
+offset_top = 42.0
+offset_right = 961.0
+offset_bottom = 589.803
+text = "Qui est la mascotte ?"
+
+[node name="ConteneurBoutons" type="HBoxContainer" parent="." unique_id=693230320]
+layout_mode = 0
+offset_left = 99.0
+offset_top = 261.0
+offset_right = 694.0
+offset_bottom = 636.0
+
+[node name="Reponse1" type="Button" parent="ConteneurBoutons" unique_id=349407191]
+layout_mode = 2
+text = "Un chat"
+
+[node name="Reponse2" type="Button" parent="ConteneurBoutons" unique_id=1258398034]
+layout_mode = 2
+text = "Un robot"
+
+[node name="Reponse3" type="Button" parent="ConteneurBoutons" unique_id=2140017623]
+layout_mode = 2
+text = "Un chien"

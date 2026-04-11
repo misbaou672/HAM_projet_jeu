@@ -1,7 +1,14 @@
+<<<<<<< Updated upstream
 [gd_scene format=3 uid="uid://fwuykxxcduy1"]
 
 [ext_resource type="Texture2D" uid="uid://bcqnrgyqktnai" path="res://scenes/characters/16x32 Walk_0005.png" id="1_7c8fv"]
 [ext_resource type="Script" uid="uid://o04yd3nal0rd" path="res://scripts/Mini_jeux/Petit déjeuner/jeu_drag_drop.gd" id="1_ilwd0"]
+=======
+[gd_scene format=3 uid="uid://rn78asoboh3e"]
+
+[ext_resource type="Texture2D" path="res://scenes/characters/16x32 Walk_0005.png" id="1_7c8fv"]
+[ext_resource type="Script" path="res://scripts/Mini_jeux/Petit déjeuner/jeu_drag_drop.gd" id="1_ilwd0"]
+>>>>>>> Stashed changes
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fu4vj"]
 size = Vector2(401, 149.5)
