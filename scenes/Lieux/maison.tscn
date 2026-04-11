@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://d1k8jh3bj3rl7"]
+
+[ext_resource type="Texture2D" uid="uid://7ki6562iaphq" path="res://assets/images/Decor/maison_chambre_salon.png" id="1_s4re5"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vc6nk"]
+texture = ExtResource("1_s4re5")
+texture_region_size = Vector2i(32, 32)
+35:40/size_in_atlas = Vector2i(6, 6)
+35:40/0 = 0
+35:46/size_in_atlas = Vector2i(6, 1)
+35:46/0 = 0
+43:40/size_in_atlas = Vector2i(7, 6)
+43:40/0 = 0
+43:46/size_in_atlas = Vector2i(7, 1)
+43:46/0 = 0
+18:37/size_in_atlas = Vector2i(4, 5)
+18:37/0 = 0
+26:37/size_in_atlas = Vector2i(5, 5)
+26:37/0 = 0
+10:37/size_in_atlas = Vector2i(5, 5)
+10:37/0 = 0
+2:37/size_in_atlas = Vector2i(5, 5)
+2:37/0 = 0
+18:36/size_in_atlas = Vector2i(4, 1)
+18:36/0 = 0
+26:36/size_in_atlas = Vector2i(5, 1)
+26:36/0 = 0
+35:32/size_in_atlas = Vector2i(7, 5)
+35:32/0 = 0
+14:28/size_in_atlas = Vector2i(9, 4)
+14:28/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_q6f32"]
+sources/0 = SubResource("TileSetAtlasSource_vc6nk")
+
+[node name="Maison" type="Node2D" unique_id=864496288]
+
+[node name="TileMap" type="TileMap" parent="." unique_id=2134609872]
+tile_set = SubResource("TileSet_q6f32")
+rendering_quadrant_size = 40
+collision_animatable = true
+format = 2
