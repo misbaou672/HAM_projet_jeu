@@ -1,29 +1,31 @@
 extends Node
 
 # ═══════════════════════════════════════════════════════════
-# GameManager.gd — AUTOLOAD
-# Déclarer dans : Projet > Paramètres > Autoload > Nom : GameManager
+# GameManager.gd — AUTOLOAD (version complète Jours 1-3)
 # ═══════════════════════════════════════════════════════════
 
-# ── État global de la partie ────────────────────────────────
-var energie      : int  = 100   # 0 à 100
-var jour_actuel  : int  = 1     # 1 à 14
-var dans_reve    : bool = false
-var boucle_actuelle : int = 1   # nombre de fois qu'on a recommencé le rêve
-var infos_reve   : Dictionary = {}  # indices trouvés, persistent entre boucles
+# ── État global ─────────────────────────────────────────────
+var energie         : int  = 100
+var jour_actuel     : int  = 1
+var dans_reve       : bool = false
+var boucle_actuelle : int  = 1
+var infos_reve      : Dictionary = {}
 
-# ── Relations PNJ (0 = neutre, 100 = max confiance) ─────────
+# ── Parcours (bifurcation jour 2 minuit) ────────────────────
+var parcours_lumiere : bool = true   # true = lumière, false = ombre
+
+# ── Relations PNJ ───────────────────────────────────────────
 var relation_pnj : Dictionary = {
-	"mere"    : 50,
-	"amie"    : 50,
+	"mere"     : 50,
+	"amie"     : 50,
 	"maitresse": 30,
-	"voisin"  : 20,
+	"voisin"   : 20,
 }
 
-# ── Seuils des fins ─────────────────────────────────────────
-const SEUIL_FIN_LUMIERE  = 100   # énergie exactement à 100 → bonne fin
-const SEUIL_FIN_GRISE    = 30    # 30–99 → fin grise
-# en dessous de 30 → fin horreur
+# ── Seuils fins ─────────────────────────────────────────────
+const SEUIL_FIN_LUMIERE := 100
+const SEUIL_FIN_GRISE   := 30
+const SEUIL_BIFURCATION := 50   # Jour 2 minuit
 
 # ── Signaux ─────────────────────────────────────────────────
 signal energie_changee(nouvelle_valeur: int)
@@ -36,12 +38,12 @@ signal partie_terminee(type_fin: String)
 
 func perdre_energie(montant: int) -> void:
 	energie = max(0, energie - montant)
-	emit_signal("energie_changee", energie)
+	energie_changee.emit(energie)
 	_verifier_game_over()
 
 func gagner_energie(montant: int) -> void:
 	energie = min(100, energie + montant)
-	emit_signal("energie_changee", energie)
+	energie_changee.emit(energie)
 
 func _verifier_game_over() -> void:
 	if energie <= 0:
@@ -56,16 +58,30 @@ func nouvelle_boucle() -> void:
 	perdre_energie(15)
 
 func fin_de_nuit() -> void:
-	dans_reve      = false
+	dans_reve       = false
 	boucle_actuelle = 1
 	infos_reve.clear()
-	jour_actuel    += 1
-	emit_signal("jour_change", jour_actuel)
+
+	# Bifurcation jour 2 → jour 3+
+	if jour_actuel == 2:
+		parcours_lumiere = energie > SEUIL_BIFURCATION
+
+	jour_actuel += 1
+	jour_change.emit(jour_actuel)
 
 	if jour_actuel > 14:
 		declencher_fin()
 	else:
-		SceneManager.aller_a("res://scenes/real_world.tscn")
+		_charger_prochain_jour()
+
+func _charger_prochain_jour() -> void:
+	var chemin : String
+	match jour_actuel:
+		1  : chemin = "res://scenes/jours/jour_1.tscn"
+		2  : chemin = "res://scenes/jours/jour_2.tscn"
+		3  : chemin = "res://scenes/jours/jour_3.tscn"
+		_  : chemin = "res://scenes/real_world.tscn"
+	SceneManager.aller_a(chemin)
 
 # ════════════════════════════════════════════════════════════
 # FINS
@@ -73,14 +89,10 @@ func fin_de_nuit() -> void:
 
 func declencher_fin() -> void:
 	var type_fin : String
-	if energie >= SEUIL_FIN_LUMIERE:
-		type_fin = "lumiere"
-	elif energie >= SEUIL_FIN_GRISE:
-		type_fin = "grise"
-	else:
-		type_fin = "horreur"
-
-	emit_signal("partie_terminee", type_fin)
+	if   energie >= SEUIL_FIN_LUMIERE : type_fin = "lumiere"
+	elif energie >= SEUIL_FIN_GRISE   : type_fin = "grise"
+	else                               : type_fin = "horreur"
+	partie_terminee.emit(type_fin)
 	SceneManager.aller_a("res://scenes/endings/fin_%s.tscn" % type_fin)
 
 # ════════════════════════════════════════════════════════════
@@ -89,17 +101,17 @@ func declencher_fin() -> void:
 
 func modifier_relation(pnj: String, delta: int) -> void:
 	if relation_pnj.has(pnj):
-		relation_pnj[pnj] = clamp(relation_pnj[pnj] + delta, 0, 100)
+		relation_pnj[pnj] = clampi(relation_pnj[pnj] + delta, 0, 100)
 
 func get_relation(pnj: String) -> int:
 	return relation_pnj.get(pnj, 0)
 
 # ════════════════════════════════════════════════════════════
-# SAUVEGARDE SIMPLE (persistance entre scènes)
+# INDICES (persistance entre boucles)
 # ════════════════════════════════════════════════════════════
 
-func sauvegarder_indice(cle: String, valeur) -> void:
+func sauvegarder_indice(cle: String, valeur: Variant) -> void:
 	infos_reve[cle] = valeur
 
-func get_indice(cle: String, defaut = null):
+func get_indice(cle: String, defaut: Variant = null) -> Variant:
 	return infos_reve.get(cle, defaut)
