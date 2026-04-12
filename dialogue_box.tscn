@@ -34,6 +34,8 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[gd_scene format=3 uid="uid://bkmd3x3mf82do"]
+
 [ext_resource type="Script" uid="uid://b6pchpdydp6pw" path="res://scripts/ui/dialogue_box.gd" id="1_senjy"]
 
 [node name="DialogueBox" type="Control" unique_id=120858490 groups=["dialogue_ui"]]
